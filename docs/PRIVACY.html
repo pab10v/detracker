@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | DeTracker Docs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --surface: #111111; --accent: #00ff41; --text: #e0e0e0; --text-dim: #888; --border: #222; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); display: flex; }
+        aside { width: 260px; border-right: 1px solid var(--border); padding: 40px 20px; position: sticky; top: 0; height: 100vh; box-sizing: border-box; }
+        .logo { font-weight: 700; color: var(--accent); margin-bottom: 40px; text-decoration: none; display: block; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { margin-bottom: 12px; }
+        nav a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; }
+        nav a:hover, nav a.active { color: var(--accent); }
+        main { flex: 1; padding: 60px; max-width: 800px; }
+        h1 { font-size: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        h2 { color: var(--accent); font-size: 1.3rem; margin-top: 30px; }
+        p { line-height: 1.7; color: var(--text-dim); }
+        ul { color: var(--text-dim); line-height: 1.7; }
+        .back-link { margin-top: 50px; display: block; color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <aside>
+        <a href="index.html" class="logo">🛡️ DeTracker Docs</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="ARCHITECTURE.html">Architecture</a></li>
+                <li><a href="PRIVACY.html" class="active">Privacy Policy</a></li>
+                <li><a href="TERMS.html">Terms & Conditions</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <h1>Privacy Policy</h1>
+        <p><strong>Last updated:</strong> May 3, 2026</p>
+        <p>DeTracker is committed to protecting your privacy. This policy explains how we handle data and why you can trust our system.</p>
+
+        <h2>1. Privacy by Design</h2>
+        <p>DeTracker is a <strong>local processing</strong> tool. All behavioral analysis (EKF), signature filtering (DFA), and block logging occur exclusively within your browser.</p>
+
+        <h2>2. Data Collection</h2>
+        <ul>
+            <li><strong>Detection Logs</strong>: We store domain names of detected trackers locally. This data never leaves your device.</li>
+            <li><strong>Local Learning (Imprints)</strong>: The system generates behavioral fingerprints stored in <code>chrome.storage.local</code>.</li>
+        </ul>
+
+        <h2>3. The Swarm (P2P Collaboration)</h2>
+        <p>If you enable the <strong>Swarm</strong> feature:</p>
+        <ul>
+            <li>Anonymized behavior hashes are shared with peers.</li>
+            <li><strong>Not shared</strong>: Your IP, browsing history, or identity.</li>
+            <li>The exchange is 100% P2P with no central logging.</li>
+        </ul>
+
+        <a href="index.html" class="back-link">← Back to Index</a>
+    </main>
+</body>
+</html>

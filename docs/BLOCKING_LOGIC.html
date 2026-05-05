@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocking Logic | DeTracker Docs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --surface: #111111; --accent: #00ff41; --text: #e0e0e0; --text-dim: #888; --border: #222; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); display: flex; }
+        aside { width: 260px; border-right: 1px solid var(--border); padding: 40px 20px; position: sticky; top: 0; height: 100vh; box-sizing: border-box; }
+        .logo { font-weight: 700; color: var(--accent); margin-bottom: 40px; text-decoration: none; display: block; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { margin-bottom: 12px; }
+        nav a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; }
+        nav a:hover, nav a.active { color: var(--accent); }
+        main { flex: 1; padding: 60px; max-width: 800px; }
+        h1 { font-size: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        h2 { color: var(--accent); font-size: 1.3rem; margin-top: 30px; }
+        p { line-height: 1.7; color: var(--text-dim); }
+        .back-link { margin-top: 50px; display: block; color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <aside>
+        <a href="index.html" class="logo">🛡️ DeTracker Docs</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="ARCHITECTURE.html">Architecture</a></li>
+                <li><a href="BLOCKING_LOGIC.html" class="active">Blocking Logic</a></li>
+                <li><a href="PRIVACY.html">Privacy Policy</a></li>
+                <li><a href="TERMS.html">Terms & Conditions</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <h1>Blocking Logic: Forensic Transparency</h1>
+        <p>DeTracker does not operate like traditional ad-blockers that rely on massive, static blacklists. Instead, it uses a <strong>multi-layered stochastic and dynamic engine</strong>.</p>
+
+        <h2>1. Layer 1: Stochastic Bloom Filter (SBF)</h2>
+        <p>The first line of defense is a compressed Bloom Filter that represents thousands of known tracking signatures in a few kilobytes.</p>
+
+        <h2>2. Layer 2: Dynamic Analysis (EKF)</h2>
+        <p>If a domain is flagged, the <strong>Extended Kalman Filter</strong> logic kick in, analyzing Entropy, Frequency, and Context to calculate a <strong>Suspicion Score (zScore)</strong>.</p>
+
+        <h2>3. Layer 3: Payload Poisoning</h2>
+        <p>For trackers that bypass network blocking, DeTracker injects "noise" into Canvas, Audio, and Font APIs to prevent hardware fingerprinting.</p>
+
+        <h2>4. Layer 4: The Circuit Breaker</h2>
+        <p>To prevent "breaking" a site, DeTracker monitors the failure rate and automatically switches to <strong>Shadow Mode</strong> if too many blocks occur in a short window.</p>
+
+        <a href="index.html" class="back-link">← Back to Index</a>
+    </main>
+</body>
+</html>

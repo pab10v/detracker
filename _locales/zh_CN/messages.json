@@ -1,0 +1,68 @@
+{
+    "appName": {
+        "message": "DeTracker"
+    },
+    "appDesc": {
+        "message": "随机隐私入侵检测系统和追踪器拦截器"
+    },
+    "blocked_trackers": {
+        "message": "已拦截的追踪器"
+    },
+    "mode": {
+        "message": "模式"
+    },
+    "shadow_mode": {
+        "message": "影子模式"
+    },
+    "shadow_desc": {
+        "message": "仅监控不拦截。用于校准。"
+    },
+    "strictness": {
+        "message": "SBF 严格程度"
+    },
+    "show_hud": {
+        "message": "显示 HUD"
+    },
+    "hud_desc": {
+        "message": "显示实时拦截通知"
+    },
+    "detection_log": {
+        "message": "检测日志"
+    },
+    "clear": {
+        "message": "清除"
+    },
+    "loose": {
+        "message": "宽松 (4σ)"
+    },
+    "normal": {
+        "message": "标准 (3σ)"
+    },
+    "strict": {
+        "message": "严格 (2σ)"
+    },
+    "protecting": {
+        "message": "保护中"
+    },
+    "shadow_active": {
+        "message": "影子 👁"
+    },
+    "no_detections": {
+        "message": "尚无检测记录。"
+    },
+    "allow_search_ads": {
+        "message": "搜索广告和自我促销"
+    },
+    "allow_search_ads_desc": {
+        "message": "允许来自搜索引擎（Google、Bing等）的非侵入性上下文广告。"
+    },
+    "pause_site": {
+        "message": "在此网站暂停"
+    },
+    "paused_label": {
+        "message": "已暂停"
+    },
+    "circuit_breaker_tripped": {
+        "message": "断路器已跳闸 (Auto-Shadow)"
+    }
+}

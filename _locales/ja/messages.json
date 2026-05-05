@@ -1,0 +1,68 @@
+{
+    "appName": {
+        "message": "DeTracker"
+    },
+    "appDesc": {
+        "message": "確率的プライバシーIDSおよびトラッカーブロッカー"
+    },
+    "blocked_trackers": {
+        "message": "ブロックされたトラッカー"
+    },
+    "mode": {
+        "message": "モード"
+    },
+    "shadow_mode": {
+        "message": "シャドウモード"
+    },
+    "shadow_desc": {
+        "message": "ブロックせずに監視します。調整に使用します。"
+    },
+    "strictness": {
+        "message": "SBFの厳格さ"
+    },
+    "show_hud": {
+        "message": "HUDを表示"
+    },
+    "hud_desc": {
+        "message": "ライブブロック通知を表示"
+    },
+    "detection_log": {
+        "message": "検出ログ"
+    },
+    "clear": {
+        "message": "クリア"
+    },
+    "loose": {
+        "message": "ゆるい (4σ)"
+    },
+    "normal": {
+        "message": "標準 (3σ)"
+    },
+    "strict": {
+        "message": "厳格 (2σ)"
+    },
+    "protecting": {
+        "message": "保護中"
+    },
+    "shadow_active": {
+        "message": "シャドウ 👁"
+    },
+    "no_detections": {
+        "message": "検出はまだありません。"
+    },
+    "allow_search_ads": {
+        "message": "検索広告と自己宣伝"
+    },
+    "allow_search_ads_desc": {
+        "message": "検索エンジン（Google、Bingなど）からの非侵入的なコンテキスト広告を許可します。"
+    },
+    "pause_site": {
+        "message": "このサイトで一時停止"
+    },
+    "paused_label": {
+        "message": "一時停止中"
+    },
+    "circuit_breaker_tripped": {
+        "message": "ブレーカー作動 (Auto-Shadow)"
+    }
+}

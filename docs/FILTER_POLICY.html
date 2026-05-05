@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Policy | DeTracker Docs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --surface: #111111; --accent: #00ff41; --text: #e0e0e0; --text-dim: #888; --border: #222; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); display: flex; }
+        aside { width: 260px; border-right: 1px solid var(--border); padding: 40px 20px; position: sticky; top: 0; height: 100vh; box-sizing: border-box; }
+        .logo { font-weight: 700; color: var(--accent); margin-bottom: 40px; text-decoration: none; display: block; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { margin-bottom: 12px; }
+        nav a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; }
+        nav a:hover, nav a.active { color: var(--accent); }
+        main { flex: 1; padding: 60px; max-width: 800px; }
+        h1 { font-size: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        h2 { color: var(--accent); font-size: 1.3rem; margin-top: 30px; }
+        p { line-height: 1.7; color: var(--text-dim); }
+        .back-link { margin-top: 50px; display: block; color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <aside>
+        <a href="index.html" class="logo">🛡️ DeTracker Docs</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="ARCHITECTURE.html">Architecture</a></li>
+                <li><a href="BLOCKING_LOGIC.html">Blocking Logic</a></li>
+                <li><a href="FILTER_POLICY.html" class="active">Filter Policy</a></li>
+                <li><a href="PRIVACY.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <h1>Filtering & Privacy Policy</h1>
+        <h2>1. Quality Standards</h2>
+        <p>DeTracker follows a strict set of principles to ensure that privacy protection does not come at the cost of a broken web. Performance is our first priority.</p>
+
+        <h2>2. What We Block</h2>
+        <p>DeTracker is designed to intercept Intrusive Trackers, Fingerprinting attempts, Beacons, and Anomalous URL Parameters.</p>
+
+        <h2>3. What We Do NOT Block</h2>
+        <p>We prioritize essential functionality (login systems, CAPTCHAs) and contextual search ads if enabled by the user.</p>
+
+        <h2>4. Transparency</h2>
+        <p>Every block action is recorded in the local <strong>Forensic Log</strong>. Users can inspect the <code>zScore</code> and the <code>Signals</code> for every intercepted request.</p>
+
+        <a href="index.html" class="back-link">← Back to Index</a>
+    </main>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+    "appName": {
+        "message": "DeTracker"
+    },
+    "appDesc": {
+        "message": "Stochastischer Datenschutz-IDS & Tracker-Blocker"
+    },
+    "blocked_trackers": {
+        "message": "Blockierte Tracker"
+    },
+    "mode": {
+        "message": "Modus"
+    },
+    "shadow_mode": {
+        "message": "Shadow-Modus"
+    },
+    "shadow_desc": {
+        "message": "Beobachten ohne Blockieren. Zum Kalibrieren verwenden."
+    },
+    "strictness": {
+        "message": "SBF-Strenge"
+    },
+    "show_hud": {
+        "message": "HUD anzeigen"
+    },
+    "hud_desc": {
+        "message": "Live-Blockierungsbenachrichtigungen anzeigen"
+    },
+    "detection_log": {
+        "message": "Erkennungsprotokoll"
+    },
+    "clear": {
+        "message": "Löschen"
+    },
+    "loose": {
+        "message": "Locker (4σ)"
+    },
+    "normal": {
+        "message": "Normal (3σ)"
+    },
+    "strict": {
+        "message": "Streng (2σ)"
+    },
+    "protecting": {
+        "message": "Schützend"
+    },
+    "shadow_active": {
+        "message": "Schatten 👁"
+    },
+    "no_detections": {
+        "message": "Noch keine Erkennungen."
+    },
+    "allow_search_ads": {
+        "message": "Suchanzeigen & Eigenwerbung"
+    },
+    "allow_search_ads_desc": {
+        "message": "Nicht-intrusive, kontextbezogene Anzeigen von Suchmaschinen (Google, Bing usw.) zulassen."
+    },
+    "pause_site": {
+        "message": "Auf dieser Seite pausieren"
+    },
+    "paused_label": {
+        "message": "Pausiert"
+    },
+    "circuit_breaker_tripped": {
+        "message": "Sicherung Aktiv (Auto-Shadow)"
+    }
+}

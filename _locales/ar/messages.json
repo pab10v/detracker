@@ -1,0 +1,68 @@
+{
+    "appName": {
+        "message": "DeTracker"
+    },
+    "appDesc": {
+        "message": "نظام كشف التسلل للخصوصية العشوائية ومنع التتبع"
+    },
+    "blocked_trackers": {
+        "message": "أجهزة التتبع المحظورة"
+    },
+    "mode": {
+        "message": "الوضع"
+    },
+    "shadow_mode": {
+        "message": "وضع الظل"
+    },
+    "shadow_desc": {
+        "message": "راقب بدون حظر. استخدم للمعايرة."
+    },
+    "strictness": {
+        "message": "صرامة SBF"
+    },
+    "show_hud": {
+        "message": "إظهار HUD"
+    },
+    "hud_desc": {
+        "message": "عرض إشعارات الحظر المباشرة"
+    },
+    "detection_log": {
+        "message": "سجل الكشف"
+    },
+    "clear": {
+        "message": "مسح"
+    },
+    "loose": {
+        "message": "رخو (4σ)"
+    },
+    "normal": {
+        "message": "طبيعي (3σ)"
+    },
+    "strict": {
+        "message": "صارم (2σ)"
+    },
+    "protecting": {
+        "message": "محمي"
+    },
+    "shadow_active": {
+        "message": "الظل 👁"
+    },
+    "no_detections": {
+        "message": "لا توجد عمليات كشف بعد."
+    },
+    "allow_search_ads": {
+        "message": "إعلانات البحث والترويج الذاتي"
+    },
+    "allow_search_ads_desc": {
+        "message": "السماح بالإعلانات السياقية غير المزعجة من محركات البحث (Google ، Bing ، إلخ)."
+    },
+    "pause_site": {
+        "message": "إيقاف مؤقت في هذا الموقع"
+    },
+    "paused_label": {
+        "message": "متوقف مؤقتا"
+    },
+    "circuit_breaker_tripped": {
+        "message": "قاطع الدائرة نشط (Auto-Shadow)"
+    }
+}

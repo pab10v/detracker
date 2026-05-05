@@ -1,0 +1,18 @@
+# DeTracker Swarm - Manual Proxy Config
+# Use this when running 'node server.js' on port 8080
+
+PassengerEnabled off
+
+RewriteEngine On
+
+# 1. Handle WebSocket Upgrade
+RewriteCond %{HTTP:Upgrade} websocket [NC]
+RewriteCond %{HTTP:Connection} upgrade [NC]
+RewriteRule ^/?(.*)$ ws://127.0.0.1:8080/$1 [P,L]
+
+# 2. Handle normal HTTP
+RewriteRule ^/?(.*)$ http://127.0.0.1:8080/$1 [P,L]
+
+# Prevent issues with host headers
+ProxyPreserveHost On
+ProxyStatus On

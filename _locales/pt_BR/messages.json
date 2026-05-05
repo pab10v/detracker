@@ -1,0 +1,68 @@
+{
+    "appName": {
+        "message": "DeTracker"
+    },
+    "appDesc": {
+        "message": "IDS de Privacidade Estocástica e Bloqueador de Rastreadores"
+    },
+    "blocked_trackers": {
+        "message": "Rastreadores Bloqueados"
+    },
+    "mode": {
+        "message": "Modo"
+    },
+    "shadow_mode": {
+        "message": "Modo Shadow"
+    },
+    "shadow_desc": {
+        "message": "Observar sem bloquear. Use para calibrar."
+    },
+    "strictness": {
+        "message": "Rigor SBF"
+    },
+    "show_hud": {
+        "message": "Mostrar HUD"
+    },
+    "hud_desc": {
+        "message": "Exibir notificações de bloqueio ao vivo"
+    },
+    "detection_log": {
+        "message": "Log de Detecção"
+    },
+    "clear": {
+        "message": "Limpar"
+    },
+    "loose": {
+        "message": "Frouxo (4σ)"
+    },
+    "normal": {
+        "message": "Normal (3σ)"
+    },
+    "strict": {
+        "message": "Estrito (2σ)"
+    },
+    "protecting": {
+        "message": "Protegendo"
+    },
+    "shadow_active": {
+        "message": "Sombra 👁"
+    },
+    "no_detections": {
+        "message": "Nenhuma detecção ainda."
+    },
+    "allow_search_ads": {
+        "message": "Anúncios de pesquisa e autopromoção"
+    },
+    "allow_search_ads_desc": {
+        "message": "Permitir anúncios contextuais não intrusivos de mecanismos de pesquisa (Google, Bing, etc.)."
+    },
+    "pause_site": {
+        "message": "Pausar neste site"
+    },
+    "paused_label": {
+        "message": "Pausado"
+    },
+    "circuit_breaker_tripped": {
+        "message": "Disjuntor ativo (Auto-Shadow)"
+    }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeTracker Documentation | P2P Privacy Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #111111;
+            --accent: #00ff41;
+            --text: #e0e0e0;
+            --text-dim: #888;
+            --border: #222;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        aside {
+            width: 280px;
+            border-right: 1px solid var(--border);
+            padding: 40px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            margin-bottom: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        /* Content */
+        main {
+            flex: 1;
+            padding: 80px 60px;
+            max-width: 800px;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        p { line-height: 1.6; color: var(--text-dim); }
+        
+        .code-block {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            margin-top: 100px;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <aside>
+        <div class="logo">🛡️ DeTracker Docs</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Overview</a></li>
+                <li><a href="ARCHITECTURE.md">System Architecture</a></li>
+                <li><a href="SWARM_ALGORITHM.md">Swarm & Markov</a></li>
+                <li><a href="BLOCKING_LOGIC.md">Blocking Heuristics</a></li>
+                <li><a href="PRIVACY.md">Privacy Policy</a></li>
+                <li><a href="TERMS.md">Terms & Conditions</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <div class="hero-badge">v0.2.0 Stable Release</div>
+        <h1>Privacy through Intelligence.</h1>
+        <p>DeTracker is a decentralized web security engine that replaces static blocklists with a dynamic behavioral analysis model. Built on top of Chromium's latest manifest standards, it provides a surgical defense against modern tracking and exploitation techniques.</p>
+        
+        <div class="code-block">
+            // The EKF Core logic<br>
+            const state = ekf.predict(signals);<br>
+            if (state.malice > THRESHOLD) {<br>
+            &nbsp;&nbsp;swarm.broadcast(imprint);<br>
+            &nbsp;&nbsp;dom.neutralize(tracker);<br>
+            }
+        </div>
+
+        <h2>Why P2P?</h2>
+        <p>Centralized blocking authorities are single points of failure and can be easily bypassed or coerced. A swarm-based defense is resilient, anonymous, and updates in real-time as threats emerge across the network.</p>
+
+        <footer>
+            Built by <a href="https://github.com/artesanous" style="color:var(--accent)">@artesanous</a>. Released under the MIT License.
+        </footer>
+    </main>
+</body>
+</html>

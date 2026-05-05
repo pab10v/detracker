@@ -1,0 +1,68 @@
+{
+    "appName": {
+        "message": "DeTracker"
+    },
+    "appDesc": {
+        "message": "מערכת זיהוי פלישות לפרטיות סטוכסטית וחוסם עוקבים"
+    },
+    "blocked_trackers": {
+        "message": "עוקבים חסומים"
+    },
+    "mode": {
+        "message": "מצב"
+    },
+    "shadow_mode": {
+        "message": "מצב צל"
+    },
+    "shadow_desc": {
+        "message": "צפה ללא חסימה. השתמש לכיול."
+    },
+    "strictness": {
+        "message": "קשיחות SBF"
+    },
+    "show_hud": {
+        "message": "הצג HUD"
+    },
+    "hud_desc": {
+        "message": "הצג הודעות חסימה בזמן אמת"
+    },
+    "detection_log": {
+        "message": "יומן זיהוי"
+    },
+    "clear": {
+        "message": "נקה"
+    },
+    "loose": {
+        "message": "משוחרר (4σ)"
+    },
+    "normal": {
+        "message": "רגיל (3σ)"
+    },
+    "strict": {
+        "message": "קשוח (2σ)"
+    },
+    "protecting": {
+        "message": "מגן"
+    },
+    "shadow_active": {
+        "message": "צל 👁"
+    },
+    "no_detections": {
+        "message": "אין זיהויים עדיין."
+    },
+    "allow_search_ads": {
+        "message": "מודעות חיפוש וקידום עצמי"
+    },
+    "allow_search_ads_desc": {
+        "message": "אפשר מודעות הקשריות שאינן חודרניות ממנועי חיפוש (גוגל, בינג וכו')."
+    },
+    "pause_site": {
+        "message": "השהה באתר זה"
+    },
+    "paused_label": {
+        "message": "מושהה"
+    },
+    "circuit_breaker_tripped": {
+        "message": "מפסק מופעל (Auto-Shadow)"
+    }
+}

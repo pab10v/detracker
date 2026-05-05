@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarm Algorithm | DeTracker Docs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --surface: #111111; --accent: #00ff41; --text: #e0e0e0; --text-dim: #888; --border: #222; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); display: flex; }
+        aside { width: 260px; border-right: 1px solid var(--border); padding: 40px 20px; position: sticky; top: 0; height: 100vh; box-sizing: border-box; }
+        .logo { font-weight: 700; color: var(--accent); margin-bottom: 40px; text-decoration: none; display: block; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { margin-bottom: 12px; }
+        nav a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; }
+        nav a:hover, nav a.active { color: var(--accent); }
+        main { flex: 1; padding: 60px; max-width: 900px; }
+        h1 { font-size: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        h2 { color: var(--accent); font-size: 1.3rem; margin-top: 30px; }
+        p { line-height: 1.7; color: var(--text-dim); }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+        th { text-align: left; background: var(--surface); color: var(--accent); padding: 12px; border: 1px solid var(--border); }
+        td { padding: 12px; border: 1px solid var(--border); color: var(--text-dim); }
+        .code-inline { font-family: 'JetBrains Mono', monospace; background: var(--surface); padding: 2px 5px; border-radius: 4px; color: var(--text); }
+        .back-link { margin-top: 50px; display: block; color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <aside>
+        <a href="index.html" class="logo">🛡️ DeTracker Docs</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="ARCHITECTURE.html">Architecture</a></li>
+                <li><a href="SWARM_ALGORITHM.html" class="active">Swarm & Markov</a></li>
+                <li><a href="PRIVACY.html">Privacy Policy</a></li>
+                <li><a href="TERMS.html">Terms & Conditions</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <h1>Swarm Coordination Algorithm</h1>
+        <p>This document describes the decentralized interaction protocol used by DeTracker to share tracking intelligence without compromising user privacy.</p>
+
+        <h2>1. The Intelligence Object: Imprint L2</h2>
+        <p>The swarm does not share raw URLs. it shares <strong style="color:var(--text)">Hardened Level 2 Imprints</strong>. An L2 Imprint is a data package validated locally under specific conditions:</p>
+        <ul>
+            <li>Detected across at least 3 distinct domains.</li>
+            <li>More than 15 confirmed hits by the EKF engine.</li>
+            <li>Temporal stability (not a fleeting false positive).</li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr><th>Field</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>uuid</code></td><td>Stable identifier of the imprint on the emitting node.</td></tr>
+                <tr><td><code>behaviorHash</code></td><td>Pattern fingerprint (derived from local signals).</td></tr>
+                <tr><td><code>target</code></td><td>Tracker candidate host (actionable at network level).</td></tr>
+                <tr><td><code>timestamp</code></td><td>Emission timestamp (ms, epoch).</td></tr>
+            </tbody>
+        </table>
+
+        <h2>2. Zero Trust Validation Protocol</h2>
+        <p>The reception of an external signature does not imply immediate execution. The local engine assigning a "High Priority Monitor" to that host.</p>
+        <p>A definitive block only occurs if the swarm reported the host AND the local EKF engine detects at least one anomalous signal from that same host.</p>
+
+        <h2>3. Binary Wire Format (DTS1)</h2>
+        <p>The <span class="code-inline">RTCDataChannel</span> uses a fixed 6-byte header followed by UTF-8 strings with BE uint16 lengths.</p>
+
+        <a href="index.html" class="back-link">← Back to Index</a>
+    </main>
+</body>
+</html>

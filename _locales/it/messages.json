@@ -1,0 +1,68 @@
+{
+    "appName": {
+        "message": "DeTracker"
+    },
+    "appDesc": {
+        "message": "IDS per la privacy stocastica e blocco dei tracker"
+    },
+    "blocked_trackers": {
+        "message": "Tracker bloccati"
+    },
+    "mode": {
+        "message": "Modalità"
+    },
+    "shadow_mode": {
+        "message": "Modalità Shadow"
+    },
+    "shadow_desc": {
+        "message": "Osserva senza bloccare. Usalo per calibrare."
+    },
+    "strictness": {
+        "message": "Rigore SBF"
+    },
+    "show_hud": {
+        "message": "Mostra HUD"
+    },
+    "hud_desc": {
+        "message": "Mostra notifiche di blocco in tempo reale"
+    },
+    "detection_log": {
+        "message": "Registro rilevamenti"
+    },
+    "clear": {
+        "message": "Pulisci"
+    },
+    "loose": {
+        "message": "Lieve (4σ)"
+    },
+    "normal": {
+        "message": "Normale (3σ)"
+    },
+    "strict": {
+        "message": "Rigoroso (2σ)"
+    },
+    "protecting": {
+        "message": "Protezione"
+    },
+    "shadow_active": {
+        "message": "Ombra 👁"
+    },
+    "no_detections": {
+        "message": "Ancora nessun rilevamento."
+    },
+    "allow_search_ads": {
+        "message": "Annunci di ricerca e autopromozione"
+    },
+    "allow_search_ads_desc": {
+        "message": "Consenti annunci contestuali non intrusivi dai motori di ricerca (Google, Bing, ecc.)."
+    },
+    "pause_site": {
+        "message": "Sospendi su questo sito"
+    },
+    "paused_label": {
+        "message": "Sospeso"
+    },
+    "circuit_breaker_tripped": {
+        "message": "Interruttore attivo (Auto-Shadow)"
+    }
+}

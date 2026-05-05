@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture | DeTracker Docs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --surface: #111111; --accent: #00ff41; --text: #e0e0e0; --text-dim: #888; --border: #222; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); display: flex; }
+        aside { width: 260px; border-right: 1px solid var(--border); padding: 40px 20px; position: sticky; top: 0; height: 100vh; box-sizing: border-box; }
+        .logo { font-weight: 700; color: var(--accent); margin-bottom: 40px; text-decoration: none; display: block; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { margin-bottom: 12px; }
+        nav a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; }
+        nav a:hover, nav a.active { color: var(--accent); }
+        main { flex: 1; padding: 60px; max-width: 800px; }
+        h1 { font-size: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        h2 { color: var(--accent); font-size: 1.3rem; margin-top: 30px; }
+        p { line-height: 1.7; color: var(--text-dim); }
+        ul { color: var(--text-dim); line-height: 1.7; }
+        .back-link { margin-top: 50px; display: block; color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <aside>
+        <a href="index.html" class="logo">🛡️ DeTracker Docs</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="ARCHITECTURE.html" class="active">Architecture</a></li>
+                <li><a href="PRIVACY.html">Privacy Policy</a></li>
+                <li><a href="TERMS.html">Terms & Conditions</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <h1>System Architecture</h1>
+        <p>This document details the internal workings of the DeTracker Intrusion Detection System (IDS).</p>
+
+        <h2>1. The Sensor (Telemetry Layer)</h2>
+        <p>The sensor is a script injected into the <code>MAIN</code> world of every page. Its function is passive telemetry.</p>
+        <ul>
+            <li><strong>Monkey Patching</strong>: Intercepts fetch, XMLHttpRequest, Canvas, and Audio APIs.</li>
+            <li><strong>Stack Memoization</strong>: Uses a <code>callerCache</code> to minimize CPU impact (O(1) lookups).</li>
+            <li><strong>Isolation</strong>: Communicates via postMessage to the ISOLATED world bridge.</li>
+        </ul>
+
+        <h2>2. Decision Engine (Hybrid)</h2>
+        <p>Located in the <strong>Offscreen Document</strong>, combining two complementary structures:</p>
+        <ul>
+            <li><strong>DFA Components</strong>: Deterministic Finite Automaton for known tracking entities.</li>
+            <li><strong>EKF in WASM</strong>: Extended Kalman Filter for real-time behavioral analysis.</li>
+        </ul>
+
+        <h2>3. MV3 Orchestration</h2>
+        <p>Utilizes a Service Worker as a router and the Offscreen Document for persistent WASM state and P2P Swarm signaling.</p>
+
+        <a href="index.html" class="back-link">← Back to Index</a>
+    </main>
+</body>
+</html>

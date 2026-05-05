@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeTracker</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <!-- Vista simple: contador + gráfico + un interruptor principal -->
+    <div class="container" id="main-view">
+        <header class="top-bar">
+            <div class="logo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.92V12H5V7.53L12 4.26V11.99Z" fill="#00ff41"/>
+                </svg>
+                <h1 data-i18n="appName">DeTracker</h1>
+            </div>
+            <button type="button" id="open-settings" class="icon-btn gear-btn" title="" aria-label="">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+            </button>
+        </header>
+
+        <section class="hero">
+            <p class="hero-label" data-i18n="stopped_trackers_label">Stopped this session</p>
+            <div class="hero-count" id="blocked-count">0</div>
+            <div class="hero-meta">
+                <p class="hero-status" id="hero-status" data-i18n="protecting">Protecting</p>
+                <span id="site-status-tag" class="status-tag hidden"></span>
+            </div>
+        </section>
+
+        <section class="action-row">
+            <button type="button" id="pause-site-btn" class="pause-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+                <span data-i18n="pause_site">Pause on this site</span>
+            </button>
+        </section>
+
+        <section class="protection-row">
+            <div class="protection-copy">
+                <span class="protection-title" data-i18n="block_trackers_title">Stop trackers</span>
+                <span class="protection-desc" data-i18n="block_trackers_desc">Blocks suspicious requests on pages you visit.</span>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="protection-toggle" checked>
+                <span class="slider-toggle round"></span>
+            </label>
+        </section>
+
+        <section class="chart-section">
+            <h2 class="chart-heading" data-i18n="activity_heading">Activity</h2>
+            <p class="chart-sub" data-i18n="activity_sub">By month — not a scoreboard, just a calm overview.</p>
+            <div id="activity-chart" class="activity-chart" role="img" aria-label="Activity chart"></div>
+            <p id="chart-empty" class="chart-empty hidden" data-i18n="chart_empty">No activity recorded yet.</p>
+        </section>
+    </div>
+
+    <!-- Ajustes avanzados: pestañas -->
+    <div id="settings-overlay" class="settings-overlay" hidden>
+        <div class="settings-backdrop" id="settings-backdrop"></div>
+        <div class="settings-sheet">
+            <div class="settings-head">
+                <h2 class="settings-title" data-i18n="tools_title">Tools & settings</h2>
+                <button type="button" id="close-settings" class="icon-btn close-btn" aria-label="Close">&times;</button>
+            </div>
+
+            <div class="tab-strip" role="tablist">
+                <button type="button" class="tab-btn is-active" role="tab" aria-selected="true" data-tab="general" data-i18n="tab_general">General</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="display" data-i18n="tab_display">Display</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="privacy" data-i18n="tab_privacy">Privacy</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="swarm" data-i18n="tab_swarm">Swarm</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="tracking" data-i18n="tab_tracking">Tracking</button>
+            </div>
+
+            <div class="tab-panels">
+                <section id="panel-general" class="tab-panel is-active" role="tabpanel">
+                    <div class="control-group toggle-group shadow-mode-group">
+                        <div class="toggle-info">
+                            <h3 data-i18n="shadow_mode">Shadow Mode</h3>
+                            <p class="description" data-i18n="shadow_desc">Observe without blocking. Use to calibrate.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="shadow-toggle">
+                            <span class="slider-toggle round shadow"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-header">
+                            <h3 data-i18n="strictness">Sensitivity</h3>
+                            <span id="strictness-value">Normal</span>
+                        </div>
+                        <p class="description" data-i18n="strictness_desc">Higher sensitivity catches more; may affect some sites.</p>
+                        <input type="range" id="strictness-slider" min="1" max="3" value="2" class="slider">
+                        <div class="slider-labels">
+                            <span data-i18n="loose">Loose</span>
+                            <span data-i18n="normal">Normal</span>
+                            <span data-i18n="strict">Strict</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group toggle-group">
+                        <div class="toggle-info">
+                            <h3 data-i18n="allow_search_ads">Search Ads & Self-Promotion</h3>
+                            <p class="description" data-i18n="allow_search_ads_desc">Allow non-intrusive contextual ads from search engines.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="search-ads-toggle">
+                            <span class="slider-toggle round"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <section id="panel-display" class="tab-panel" role="tabpanel" hidden>
+                    <div class="control-group toggle-group">
+                        <div class="toggle-info">
+                            <h3 data-i18n="show_hud">Show HUD</h3>
+                            <p class="description" data-i18n="hud_desc">Small on-page notifications when something is blocked.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="hud-toggle" checked>
+                            <span class="slider-toggle round"></span>
+                        </label>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-header">
+                            <h3 data-i18n="language_label">Language</h3>
+                        </div>
+                        <p class="description" data-i18n="language_desc">Override system language.</p>
+                        <select id="language-select" class="select-input full-width">
+                            <option value="auto" data-i18n="lang_auto">Automatic (System)</option>
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                            <option value="it">Italiano</option>
+                            <option value="pt_BR">Português (Brasil)</option>
+                            <option value="ru">Русский</option>
+                            <option value="ja">日本語</option>
+                            <option value="zh_CN">简体中文</option>
+                            <option value="ar">العربية</option>
+                            <option value="he">עברית</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section id="panel-privacy" class="tab-panel" role="tabpanel" hidden>
+                    <div class="control-group">
+                        <div class="control-header">
+                            <h3 data-i18n="privacy_heading">Stored info</h3>
+                            <span data-i18n="privacy_badge">Minimal</span>
+                        </div>
+                        <p class="description" data-i18n="privacy_body">Only host names and counts — no full URLs.</p>
+                        <div class="inline-row">
+                            <label for="log-retention-select" data-i18n="log_entries_label">Log size</label>
+                            <select id="log-retention-select" class="select-input">
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="200" selected>200</option>
+                                <option value="500">500</option>
+                            </select>
+                        </div>
+                        <div class="toggle-group subtle">
+                            <div class="toggle-info">
+                                <h3 data-i18n="diagnostics_title">Diagnostics</h3>
+                                <p class="description" data-i18n="diagnostics_desc">Anonymous counters by reason (optional).</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="diagnostics-toggle">
+                                <span class="slider-toggle round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="panel-swarm" class="tab-panel" role="tabpanel" hidden>
+                    <div class="control-group">
+                        <div class="control-header">
+                            <h3 data-i18n="swarm_title">Swarm</h3>
+                            <span data-i18n="swarm_badge">P2P</span>
+                        </div>
+                        <p class="description" data-i18n="swarm_desc">Share and receive intelligence with minimal background activity.</p>
+
+                        <div class="inline-row">
+                            <span class="description" data-i18n="swarm_status_label">Status</span>
+                            <span id="swarm-status-pill" class="pill">—</span>
+                        </div>
+
+                        <div class="inline-row">
+                            <label for="swarm-mode-select" data-i18n="swarm_mode_label">Mode</label>
+                            <select id="swarm-mode-select" class="select-input">
+                                <option value="manual" data-i18n="swarm_mode_manual">Manual</option>
+                                <option value="balanced" data-i18n="swarm_mode_balanced" selected>Balanced</option>
+                                <option value="aggressive" data-i18n="swarm_mode_aggressive">Aggressive</option>
+                            </select>
+                        </div>
+
+                        <div class="toggle-group subtle">
+                            <div class="toggle-info">
+                                <h3 data-i18n="swarm_contrib">Contribute to Swarm</h3>
+                                <p class="description" data-i18n="swarm_contrib_desc">Anonymously share Level 2 imprints with other users.</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="swarm-contrib-toggle">
+                                <span class="slider-toggle round"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-group subtle">
+                            <div class="toggle-info">
+                                <h3 data-i18n="swarm_receive">Download Vaccines</h3>
+                                <p class="description" data-i18n="swarm_receive_desc">Receive intelligence updates from the collaborative network.</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="swarm-receive-toggle">
+                                <span class="slider-toggle round"></span>
+                            </label>
+                        </div>
+
+                        <div class="inline-row">
+                            <button type="button" id="swarm-discover-now" class="clear-btn swarm-action-btn" data-i18n="swarm_discover_now">Discover now</button>
+                            <span class="description" data-i18n="swarm_discover_now_desc">Refresh nearby peers on demand.</span>
+                        </div>
+
+                        <div class="inline-row">
+                            <button type="button" id="swarm-share-now" class="clear-btn swarm-action-btn" data-i18n="swarm_share_now">Share now</button>
+                            <span class="description" data-i18n="swarm_share_now_desc">Broadcast your current vault imprints.</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-header">
+                            <h3 data-i18n="vault_title">Intelligence Vault</h3>
+                        </div>
+                        <p class="description" data-i18n="vault_desc">Learned imprints and verified patterns.</p>
+                        <div id="vault-list" class="log-list">
+                            <div class="log-empty" data-i18n="no_imprints">No imprints matured yet.</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="panel-tracking" class="tab-panel" role="tabpanel" hidden>
+                    <div class="log-toolbar">
+                        <h3 data-i18n="tracking_title">Who is tracking me</h3>
+                        <button type="button" id="open-dashboard-btn" class="clear-btn" style="border-color: var(--accent); color: var(--accent);">Full Report ↗</button>
+                    </div>
+                    <p class="description" data-i18n="tracking_desc">Grouped by site for transparency.</p>
+                    <div id="tracking-list" class="log-list">
+                        <div class="log-empty" data-i18n="no_detections">No detections yet.</div>
+                    </div>
+                    <div style="display:flex; justify-content:flex-end; margin-top:10px;">
+                        <button type="button" id="clear-log" class="clear-btn" data-i18n="clear">Clear Log</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="i18n-helper.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+    "appName": {
+        "message": "DeTracker"
+    },
+    "appDesc": {
+        "message": "Стохастическая IDS конфиденциальности и блокировщик трекеров"
+    },
+    "blocked_trackers": {
+        "message": "Заблокированные трекеры"
+    },
+    "mode": {
+        "message": "Режим"
+    },
+    "shadow_mode": {
+        "message": "Режим Тени"
+    },
+    "shadow_desc": {
+        "message": "Наблюдение без блокировки. Используйте для калибровки."
+    },
+    "strictness": {
+        "message": "Строгость SBF"
+    },
+    "show_hud": {
+        "message": "Показать HUD"
+    },
+    "hud_desc": {
+        "message": "Отображать уведомления о блокировке в реальном времени"
+    },
+    "detection_log": {
+        "message": "Журнал обнаружения"
+    },
+    "clear": {
+        "message": "Очистить"
+    },
+    "loose": {
+        "message": "Слабый (4σ)"
+    },
+    "normal": {
+        "message": "Нормальный (3σ)"
+    },
+    "strict": {
+        "message": "Строгий (2σ)"
+    },
+    "protecting": {
+        "message": "Защита"
+    },
+    "shadow_active": {
+        "message": "Тень 👁"
+    },
+    "no_detections": {
+        "message": "Обнаружений пока нет."
+    },
+    "allow_search_ads": {
+        "message": "Поисковая реклама и самореклама"
+    },
+    "allow_search_ads_desc": {
+        "message": "Разрешить ненавязчивую контекстную рекламу в поисковых системах (Google, Bing и т. д.)."
+    },
+    "pause_site": {
+        "message": "Пауза на этом сайте"
+    },
+    "paused_label": {
+        "message": "На паузе"
+    },
+    "circuit_breaker_tripped": {
+        "message": "Предохранитель активен (Auto-Shadow)"
+    }
+}

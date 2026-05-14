@@ -1,7 +1,7 @@
 # 🛡️ DeTracker Privacy Swarm
 ### Collaborative Intelligence against Browser Exploitation
 
-DeTracker is not a simple "ad-blocker". It is a decentralized security engine that uses an **Extended Kalman Filter (EKF)** and **Deterministic Finite Automata (DFA)** to identify and neutralize malicious behavioral patterns in real-time.
+DeTracker is a decentralized security engine that uses an **Extended Kalman Filter (EKF)** and **Deterministic Finite Automata (DFA)** to identify and neutralize malicious behavioral patterns in real-time.
 
 ![DeTracker Hero Mockup](https://raw.githubusercontent.com/artesanous/detracker/main/assets/hero.png)
 
